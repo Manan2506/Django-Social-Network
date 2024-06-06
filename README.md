@@ -1,4 +1,4 @@
-# Social Network API
+# Django-Social-Network
 
 This is a RESTful API for a social network application built with Django and Django REST framework. It allows users to sign up, log in, send and manage friend requests, and search for users.
 
@@ -23,8 +23,8 @@ This is a RESTful API for a social network application built with Django and Dja
 1. **Clone the repository**
 
    ```sh
-   git clone https://github.com/yourusername/social-network-api.git
-   cd social-network-api
+   git clone https://github.com/Manan2506/Django-Social-Network.git
+   cd Django-Social-Network
 
 2. **Create and activate a virtual environment**
 
@@ -61,6 +61,7 @@ This is a RESTful API for a social network application built with Django and Dja
 5. **Apply migrations**
 
    ```sh
+   python manage.py makemigrations
    python manage.py migrate
 
 6. **Create a superuser**

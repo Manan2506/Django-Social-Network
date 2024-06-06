@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB=yourdatabase
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+
+  web:
+    build: .
+    image: social_network:latest
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_NAME=yourdatabase
+      - DATABASE_USER=user
+      - DATABASE_PASSWORD=password
+      - DATABASE_HOST=db
+      - DATABASE_PORT=5432
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:
